@@ -1,0 +1,128 @@
+
+
+{% extends 'navbar.html' %}
+{% block main %}
+{% load static %}
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2> Search Items</h2>
+            </div>
+           
+        </div>
+    </div>
+</div>
+{% if request.session.student %}
+
+<div class="container mt-5">
+
+    <h1>Search Item</h1>
+    <br/>
+    <!-- Search form -->
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search products">
+        <div class="input-group-append">
+            <button class="btn btn-primary" id="searchButton">Search</button>
+        </div>
+    </div>
+
+    <!-- Display search results -->
+    <ul class="list-group" id="searchResults">
+        <!-- Results will be dynamically added here using JavaScript -->
+    </ul>
+</div>
+<h1>Lost Items List</h1>
+    
+{% if all_items  %}
+    <ul>
+        {% for item in all_items %}
+        {%if item.lostItem %}
+            <li>
+                <strong>Item Name:</strong> {{ item.item_name }}<br>
+                <strong>Information:</strong> {{ item.information_about_item }}<br>
+
+                {% if item.lostItem %}
+                  <img src="{{ item.lostItem.url }}" alt="Lost Item Image" width="100">
+               {% else %}
+              <p>No image available</p>
+               {% endif %}
+
+            </li>
+        {% endif %}    
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No lost items found.</p>
+{% endif %}
+{% else %}
+
+<div class="container mt-5">
+
+    <h1>Search Item</h1>
+    <br/>
+    <!-- Search form -->
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search products">
+        <div class="input-group-append">
+            <button class="btn btn-primary" id="searchButton">Search</button>
+        </div>
+    </div>
+
+    <!-- Display search results -->
+    <ul class="list-group" id="searchResults">
+        <!-- Results will be dynamically added here using JavaScript -->
+    </ul>
+</div>
+<h1>Lost Items List</h1>
+    
+{% if all_items  %}
+    <ul>
+        {% for item in all_items %}
+        {%if item.lostItem %}
+            <li>
+                <strong>Item Name:</strong> {{ item.item_name }}<br>
+                <strong>Information:</strong> {{ item.information_about_item }}<br>
+
+                {% if item.lostItem %}
+                  <img src="{{ item.lostItem.url }}" alt="Lost Item Image" width="100">
+               {% else %}
+              <p>No image available</p>
+               {% endif %}
+
+            </li>
+        {% endif %}    
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No lost items found.</p>
+ 
+{% endif %}
+{% endif %}
+ 
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,95 @@
+
+
+{% extends 'navbar.html' %}
+{% block main %}
+{% load static %}
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2> LostItems Tracker</h2>
+            </div>
+            <div class="col-12">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'student_login' %}">Login</a>
+                <a href="{% url 'signup' %}">Signup</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% if request.session.student %}
+<!-- <div class="container mt-5">
+    <h1 class="mb-4">Lost Item Form</h1>
+    <form method="post" enctype="multipart/form-data" action="">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="item_name">Item Name:</label>
+            <input type="text" class="form-control" name="item_name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="information_about_item">Information About Item:</label>
+            <input type="text" class="form-control" name="information_about_item">
+        </div>
+
+        <div class="form-group">
+            <label for="lostItem">Upload Image:</label>
+            <input type="file" class="form-control-file" name="lostItem">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div> -->
+
+<div class="container mt-5 text-center">
+    <br/>
+    <br/>
+    <br/>
+    
+    <h1 class="mb-4">Lost Item Tracker</h1>
+    <br/>
+    <br/>
+    
+
+    <!-- Add Lost Item Button -->
+    <a href="{% url 'addLostItem' %}" class="btn btn-primary mr-3 btn btn-custom text-white">Add Lost Item</a>
+
+    <!-- Search Lost Item Button -->
+    <a href="{% url 'searchItem' %}" class="btn btn-success btn btn-custom text-white">Search Lost Item</a>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    
+    
+</div>
+{%else %}
+
+<div class="container mt-5 text-center">
+<a href="{% url 'searchItem' %}" class="btn btn-success btn btn-custom text-white">Search Lost Item</a>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>div
+{% endif %}
+
+
+
+
+
+{% endblock %}
+
+ 

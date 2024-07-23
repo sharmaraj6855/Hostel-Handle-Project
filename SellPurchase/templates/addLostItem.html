@@ -1,0 +1,90 @@
+
+
+{% extends 'navbar.html' %}
+{% block main %}
+{% load static %}
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2> Add Lost Item</h2>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% if request.session.student %}
+<div class="container mt-5">
+    <h1 class="mb-4">Lost Item Form</h1>
+    <form method="post" enctype="multipart/form-data" action="{% url 'addLostItem' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="item_name">Item Name:</label>
+            <input type="text" class="form-control" name="item_name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="information_about_item">Information About Item:</label>
+            <input type="text" class="form-control" name="information_about_item">
+        </div>
+
+        <div class="form-group">
+            <label for="lostItem">Upload Image:</label>
+            <input type="file" class="form-control-file" name="lostItem">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+{%else %}
+
+<div class="container mt-5">
+
+    <h1>Search Item</h1>
+
+    <!-- Search form -->
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search products">
+        <div class="input-group-append">
+            <button class="btn btn-primary" id="searchButton">Search</button>
+        </div>
+    </div>
+
+    <!-- Display search results -->
+    <ul class="list-group" id="searchResults">
+        <!-- Results will be dynamically added here using JavaScript -->
+    </ul>
+</div>
+
+{% endif %}
+ 
+
+ 
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
